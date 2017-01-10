@@ -39,8 +39,12 @@ def job():
     response = requests.request("POST", url, data=payload, headers=headers)
     print(response.status_code)
 
+def timer():
+    print("[*] Running everyday Scheduled task at 13:15 hr")
+
 
 schedule.every().day.at("13:30").do(job)
+schedule.every().second.do(timer)
 
 while True:
     schedule.run_pending()
